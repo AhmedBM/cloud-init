@@ -36,6 +36,7 @@
         "mcollective",
         "mounts",
         "ntp",
+        "osconfig",
         "package-update-upgrade-install",
         "package_update_upgrade_install",
         "phone-home",
@@ -2107,6 +2108,46 @@
         }
       }
     },
+    "cc_osconfig": {
+      "type": "object",
+      "properties": {
+        "osconfig": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "local_management": {
+              "type": "integer",
+              "description": "Enables local management. Default: ``0 / Off``",
+              "default": 0
+            },
+            "git_management": {
+              "type": "integer",
+              "description": "Enables git management. Default: ``0 / Off``",
+              "default": 0
+            },
+            "git_repository_url": {
+              "type": "string",
+              "description": "The url where the git repository contains the DC (Desired Configuration) file"
+            },
+            "git_branch": {
+              "type": "string",
+              "default": "main",
+              "description": "The branch to use. Default: ``main``"
+            },
+            "debug_command_logging": {
+              "type": "integer",
+              "description": "Enabling logging of system commands executed by OSConfig for debugging purposes. Default: ``0 / Off``",
+              "default": 0
+            },
+            "debug_full_logging": {
+              "type": "integer",
+              "description": "Enabling full logging for debugging purposes. Default: ``0 / Off``",
+              "default": 0
+            }
+          }
+        }
+      }
+    },
     "cc_package_update_upgrade_install": {
       "type": "object",
       "properties": {
@@ -3720,6 +3761,9 @@
       "$ref": "#/$defs/cc_ntp"
     },
     {
+      "$ref": "#/$defs/cc_osconfig"
+    },
+    {
       "$ref": "#/$defs/cc_package_update_upgrade_install"
     },
     {
@@ -3865,6 +3909,7 @@
     "mounts": {},
     "no_ssh_fingerprints": {},
     "ntp": {},
+    "osconfig": {},
     "output": {},
     "package_reboot_if_required": {},
     "package_update": {},

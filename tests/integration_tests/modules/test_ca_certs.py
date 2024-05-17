@@ -115,6 +115,7 @@ class TestCaCerts:
             "lxd",
             "mcollective",
             "ntp",
+            "osconfig",
             "package_update_upgrade_install",
             "phone_home",
             "power_state_change",
